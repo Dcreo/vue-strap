@@ -85,7 +85,8 @@ export default {
     lang: {type: String, default: navigator.language},
     name: {type: String},
     placeholder: {type: String},
-    iconsFont: {type: String, default: 'glyphicon'}
+    iconsFont: {type: String, default: 'glyphicon'},
+    firstDayWeekNumber: {type: Number, default: 0}
   },
   data () {
     return {
@@ -275,7 +276,7 @@ export default {
       }
 
       const currMonthFirstDay = new Date(time.year, time.month, 1)
-      let firstDayWeek = currMonthFirstDay.getDay() + 1
+      let firstDayWeek = currMonthFirstDay.getDay() + this.firstDayWeekNumber
       if (firstDayWeek === 0) {
         firstDayWeek = 7
       }
